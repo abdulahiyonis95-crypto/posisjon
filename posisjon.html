@@ -1,0 +1,18 @@
+var x = document.getElementById("demo"); 
+
+function getLocation() { 
+  if (navigator.geolocation) { 
+    navigator.geolocation.getCurrentPosition(showPosition); 
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser."; 
+  } 
+} 
+
+function showPosition(position) { 
+  var lat = position.coords.latitude; 
+  var lon = position.coords.longitude; 
+  
+  // Creates a clickable link using an HTML anchor tag
+  x.innerHTML = "Breddegrad: " + lat + "<br>Lengdegrad: " + lon + 
+                "<br><a href='https://google.com" + lat + "," + lon + "' target='_blank'>Åpne i Google Maps</a>"; 
+}
